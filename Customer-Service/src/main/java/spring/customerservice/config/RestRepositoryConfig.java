@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import spring.customerservice.entities.Customer;
 
 @Configuration
-public class RestRepository implements RepositoryRestConfigurer {
+public class RestRepositoryConfig implements RepositoryRestConfigurer {
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config , CorsRegistry cors) {
         config.exposeIdsFor(Customer.class);
     }
