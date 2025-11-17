@@ -3,12 +3,15 @@ package spring.orderservice.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import spring.orderservice.entities.Order;
 import spring.orderservice.feign.CustomerRestClient;
 import spring.orderservice.feign.ProductRestClient;
 import spring.orderservice.repository.OrderRepository;
 import spring.orderservice.repository.ProductIteamRepository;
+
+import java.util.List;
 
 @RestController
 public class OrderController {
@@ -23,6 +26,10 @@ public class OrderController {
     private ProductRestClient productRestClient;
 
 
+    @GetMapping("/orders")
+    public List<Order> getOrders() {
+        return orderRepository.findAll();
+    }
 
     @GetMapping("/orders/{id}")
     public Order getOrder(@PathVariable Long id){
