@@ -1,14 +1,14 @@
-package spring.billingservice.repository;
+package spring.orderservice.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RestResource;
-import spring.billingservice.entities.Bill;
+import spring.orderservice.entities.Order;
 
 import java.util.List;
 
-public interface BillRepository extends JpaRepository<Bill, Long> {
+public interface OrderRepository extends JpaRepository<Order, Long> {
 
     @RestResource(path = "/byCustomerId")
-    List<Bill> findByCustomerId(@Param("customerId") Long customerId);
+    List<Order> findByCustomerId(@Param("customerId") Long customerId);
 }
