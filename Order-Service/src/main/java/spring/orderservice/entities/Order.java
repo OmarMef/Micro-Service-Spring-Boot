@@ -26,4 +26,12 @@ public class Order {
     @OneToMany(mappedBy = "order")
     private List<ProductIteam> productIteams = new ArrayList<>();
     @Transient private Customer customer;
+
+    public double getTotal(){
+        double sum = 0;
+        for (ProductIteam pi : productIteams) {
+            sum+=pi.getAmount();
+        }
+        return sum;
+    }
 }

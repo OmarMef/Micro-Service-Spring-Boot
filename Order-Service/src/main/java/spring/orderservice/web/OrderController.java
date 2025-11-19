@@ -1,9 +1,9 @@
 package spring.orderservice.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import spring.orderservice.entities.Order;
 import spring.orderservice.feign.CustomerRestClient;
@@ -14,6 +14,7 @@ import spring.orderservice.repository.ProductIteamRepository;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 public class OrderController {
 
     @Autowired
@@ -40,4 +41,6 @@ public class OrderController {
         });
         return order;
     }
-}
+
+
+    }

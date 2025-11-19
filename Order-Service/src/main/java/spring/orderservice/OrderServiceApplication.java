@@ -53,7 +53,8 @@ public class OrderServiceApplication {
                         ProductIteam productIteam = ProductIteam.builder()
                                 .order(order)
                                 .productId(product.getId())
-                                .quantity(1 + new Random().nextInt(10))
+                                .quantity(new Random().nextInt(product.getQuantity()))
+                                .discount(random.nextDouble(1))
                                 .unitPrice(product.getPrice())
                                 .build();
                         productIteamRepository.save(productIteam);

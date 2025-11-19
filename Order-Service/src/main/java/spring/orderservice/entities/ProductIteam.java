@@ -14,10 +14,15 @@ public class ProductIteam {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String productId;
+    private double discount;
     @ManyToOne
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Order order;
     private int quantity;
     private double unitPrice;
     @Transient private Product product;
+
+    public double getAmount() {
+        return unitPrice*quantity*(1-discount);
+    }
 }

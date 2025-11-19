@@ -5,6 +5,7 @@ import spring.orderservice.enums.OrderStatus;
 
 import java.util.Date;
 
+
 @Projection(name = "fullOrder",types = {Order.class})
 public interface OrderProjection {
     Long getId();
